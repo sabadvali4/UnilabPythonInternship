@@ -6,6 +6,7 @@ from uuid import uuid4
 import os
 import shutil
 from werkzeug.utils import secure_filename
+from sqlalchemy import and_
 
 from src.config import Config
 # from src.views.main.forms import main
@@ -140,13 +141,12 @@ def home():
     addpoductform = AddProductForm()
     regform = RegistrationForm()    
 
-    
+                
     if addpoductform.validate_on_submit():
         add_product()
 
 
     if regform.validate_on_submit():
-        print("movida reg")
         user_name = Users.query.filter(Users.name == regform.username_reg.data).first()
         email = Users.query.filter(Users.email == regform.email_reg.data).first()
 
@@ -171,10 +171,33 @@ def home():
             return redirect("/")
         
         if user.check_password(logform.password_log.data):
-            print("aqaa")
             login_user(user)
             
-    products = Products.query.filter().all()
+    search = request.args.get("search")  
+    pricefrom = request.args.get("pricefrom")
+    if search and pricefrom:
+        priceto = request.args.get("priceto")
+        products = Products.query.filter(
+        and_(
+                Products.product_name.ilike(f"%{search}%"),
+                Products.price >= pricefrom,
+                Products.price <= priceto
+            )
+        ).all()      
+    elif search:
+        products = Products.query.filter(Products.product_name.ilike(f"%{search}%"))
+    elif pricefrom:
+        priceto = request.args.get("priceto")
+        products = Products.query.filter(
+        and_(
+                Products.price >= pricefrom,
+                Products.price <= priceto
+            )
+        ).all()  
+        
+    else:
+        products = Products.query.filter().all()
+        
     return render_template("home.html",products=products,
                            regform=regform, 
                            logform=logform,

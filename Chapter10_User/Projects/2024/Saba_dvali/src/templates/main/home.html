@@ -16,63 +16,34 @@
         <div class="d-flex flex-row mt-5" >
 
             <div style="width: 45%;">
-                <div  >
+                <div>
                     <form class="d-flex flex-row">
-                        <input class="form-control mr-sm-2 "  type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2 " name="search" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-secondary my-2 my-sm-0 ms-2" type="submit">Search</button>
-                    </form>
                 </div>
 
                 <div>
                     <div class=" mt-2" >
                         <div class="card" style=" border-radius: 15px;">
-    
                           <div class="card-body" >
-                            <form>
-                      
-
-                      
-                              <!-- Price Range -->
                               <div class="mb-3">
                                 <label for="priceRange" class="form-label">Price Range</label>
                                 <div class="input-group">
-                                  <input type="number" class="form-control" id="priceFrom" placeholder="From">
+                                  <input type="number" class="form-control" name="pricefrom"  id="priceFrom" placeholder="From">
                                   <span class="input-group-text">-</span>
-                                  <input type="number" class="form-control" id="priceTo" placeholder="To">
+                                  <input type="number" class="form-control" name="priceto" id="priceTo" placeholder="To">
                                 </div>
-                              </div>
-            
-                              <div class="mb-3">
-                                <select class="form-select" id="modelSelect">
-                                  <option selected>Select Color</option>
-                                  <option value="model1">Model 1</option>
-                                  <option value="model2">Model 2</option>
-                                  <option value="model3">Model 3</option>
-                                  <option value="model4">Model 4</option>
-                                </select>
-                              </div>
-                      
-                              <!-- Model Filter -->
-                              <div class="mb-3">
-                                <select class="form-select" id="modelSelect">
-                                  <option selected>Select a model</option>
-                                  <option value="model1">Model 1</option>
-                                  <option value="model2">Model 2</option>
-                                  <option value="model3">Model 3</option>
-                                  <option value="model4">Model 4</option>
-                                </select>
-                              </div>
-                      
-                            </form>
+                              </div>                    
                           </div>
                         </div>
                       </div>
-    
+                      
+                    </form>
+
                 </div>
-
-
-
             </div>
+            
+
             <div class="container mb-3" >
                 <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true" >
                     <div class="carousel-inner" style=" border-radius: 15px;">
