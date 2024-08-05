@@ -175,6 +175,8 @@ def home():
             
     search = request.args.get("search")  
     pricefrom = request.args.get("pricefrom")
+    print(pricefrom)
+    print(search)
     if search and pricefrom:
         priceto = request.args.get("priceto")
         products = Products.query.filter(
@@ -188,6 +190,8 @@ def home():
         products = Products.query.filter(Products.product_name.ilike(f"%{search}%"))
     elif pricefrom:
         priceto = request.args.get("priceto")
+        print(priceto)
+
         products = Products.query.filter(
         and_(
                 Products.price >= pricefrom,
