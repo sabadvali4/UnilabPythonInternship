@@ -140,8 +140,9 @@ def home():
     logform = LoginForm()
     addpoductform = AddProductForm()
     regform = RegistrationForm()    
+    per_page = 8
+    page_num = int(request.args.get("page_num", default=1))
 
-                
     if addpoductform.validate_on_submit():
         add_product()
 
@@ -185,9 +186,9 @@ def home():
                 Products.price >= pricefrom,
                 Products.price <= priceto
             )
-        ).all()      
+        ).paginate(per_page=per_page,page=page_num,  error_out=True)
     elif search:
-        products = Products.query.filter(Products.product_name.ilike(f"%{search}%"))
+        products = Products.query.filter(Products.product_name.ilike(f"%{search}%")).paginate(per_page=per_page,page=page_num, error_out=True)
     elif pricefrom:
         priceto = request.args.get("priceto")
         print(priceto)
@@ -197,12 +198,14 @@ def home():
                 Products.price >= pricefrom,
                 Products.price <= priceto
             )
-        ).all()  
+        ).paginate(per_page=per_page, page=page_num,  error_out=True)
         
     else:
-        products = Products.query.filter().all()
+        products = Products.query.filter().paginate(per_page=per_page,page=page_num,  error_out=True)
         
     return render_template("home.html",products=products,
+                           page_num=page_num,
+                           search=search,
                            regform=regform, 
                            logform=logform,
                            addpoductform=addpoductform,
@@ -212,8 +215,6 @@ def home():
 
 @main_bp.route("/user_profile/<id>",methods=["GET", "POST"])
 def user_profile(id):
-    print("movida")
-    print(id)
     user = Users.query.filter(Users.id == id).all()
 
     return render_template("user_profile.html",user=user,

@@ -20,8 +20,11 @@
                             <div class="carousel-inner mt-3 ">
                                 {% for image in prod.images %}
                                 <div class="carousel-item active ">
-                                    <img src="static/images/{{ image.product_id }}/{{ image.image_name }}" class="d-block w-100 alt="...">
+                                         
+                                    <img src="{{ url_for('static', filename='images/' + image.product_id|string + '/' + image.image_name) }}" class="d-block w-100 alt="...">
                                 </div>
+                            <h1>/src/static/images/{{ image.product_id }}/{{ image.image_name }}</h1>x
+
                                 {% endfor %}
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#{{ prod.id }}" data-bs-slide="prev">
@@ -38,7 +41,6 @@
                             <p class="card-text">{{ prod.price }}</p>
                             <p class="card-text">{{ prod.info }}</p>
            
-                            <a href="#" class="btn btn-primary">Buy</a>
                         </div>
                     </div>       
                 {% endfor %}
@@ -46,6 +48,8 @@
             </div>
 
         </div>
+{% include 'layouts/footer.html' %}
+
 {% endblock %}
 
 </html>

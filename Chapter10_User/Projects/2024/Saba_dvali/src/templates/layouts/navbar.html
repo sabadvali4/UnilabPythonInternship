@@ -30,12 +30,9 @@
                 {% if current_user.role == 1 %}
                     <a href="/admin" class="btn btn-light btn-md">Admin Panel</a>
                 {% endif %}
-                <button type="button" class="btn btn-light">
-                    <img src="static/icons/shopping-cart.png" width="22" height="22" alt="">
-                </button>
-                
+    
                 <button type="button" class="btn btn-light"data-bs-toggle="modal" data-bs-target="#addproductModal">
-                    <img src="static/icons/more.png" width="22" height="22" alt="">
+                    <img src="{{ url_for('static', filename='icons/more.png' ) }}" width="22" height="22" alt="">
                 </button>
 
                 <a class=" dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
