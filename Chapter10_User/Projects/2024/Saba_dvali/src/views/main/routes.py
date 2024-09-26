@@ -67,8 +67,8 @@ main_bp = Blueprint("main",__name__, template_folder=TEMPLATE_FOLDER)
 
 
 # @main_bp.route('/role', methods=['POST',"GET"])
-# def role():
-#     role = Role(role="guest")
+# def role1():
+#     role = Role(role="Admin")
 #     db.session.add(role)
 #     db.session.commit()
 #     return "yes"
@@ -168,9 +168,11 @@ def home():
 
         user = Users.query.filter(Users.name == logform.username_log.data).first()
         if not user:
-            print("მითითებული მომხმარებელი ვერ მოიძებნა")
-            return redirect("/")
-        
+            user = Users.query.filter(Users.email == logform.username_log.data).first()
+            if not user:
+                print("მითითებული მომხმარებელი ვერ მოიძებნა")
+                return redirect("/")
+
         if user.check_password(logform.password_log.data):
             login_user(user)
             

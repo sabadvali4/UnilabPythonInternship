@@ -35,14 +35,11 @@
                 </button>
 
                 <a class=" dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="39" alt="Black and White Portrait of a Man" loading="lazy" />
+                    <img src="{{ url_for('static', filename='icons/user.jpg' ) }}" class="rounded-circle" height="60" alt="" loading="lazy" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="box-shadow:3px 3px 10px rgba(0, 0, 0, 0.1);  border-radius: 10px;border: 1px solid #adabab; background-color:#ffffff">
                 <li><a class="dropdown-item" href="{{ url_for('main.profile') }} ">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Add Product</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">About</a></li>
-                <li><a class="dropdown-item" href="#">Support</a></li>
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </div>

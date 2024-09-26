@@ -4,11 +4,11 @@
 
 <div class="container" id="about">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 my-5"  style="border-top: 1px solid black;">
-      <div class="col mb-3">
-        <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-        <p class="text-body-secondary">© 2024</p>
+      <div class="col mb-3 ">
+
+        <p class="text-body-secondary">© 2024   </p>
+        <p class="text-body-secondary">Saba  Dvali</p>
+        <p class="text-body-secondary">Python Acceleration Program</p>
       </div>
   
       <div class="col mb-3">
@@ -16,37 +16,36 @@
       </div>
   
       <div class="col mb-3">
-        <h5>Section</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">ILIAUNI UNILAB</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">+995555555</a></li>
+          <li class="nav-item mb-2"><a href="https://www.facebook.com/UniLabEdu" class="nav-link p-0 text-body-secondary">Facebook</li>
+
         </ul>
       </div>
-  
-      <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-      </div>
-  
-      <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-      </div>
+
+      <div class="container " style="width: 200px; margin-bottom: 10px;">
+        <div id="map" style="width: 400px; height: 200px;"></div> <!-- Map container -->
+    
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+
+        <script>
+            // Your Mapbox access token
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZHZhbGkiLCJhIjoiY2xwd2ptNmxwMGNkMTJrbzJ0YnhrZ3diMiJ9.5R2L7MaYZq6TjKpqcl07nA';
+    
+            // Initialize the map
+            const map = new mapboxgl.Map({
+                container: 'map', // ID of the element in which to display the map
+                style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+                center: [43.3000, 42.3000], // Initial geographic center of the map [longitude, latitude]
+                zoom: 5.3 // Initial zoom level
+            });
+    
+
+        </script>
+    </div>
+    
+
     </footer>
   </div>
 {% endblock %}

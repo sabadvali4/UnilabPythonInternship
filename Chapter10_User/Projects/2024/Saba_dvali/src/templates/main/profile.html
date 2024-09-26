@@ -5,10 +5,6 @@
 {% block title %} {{ current_user.name }} {% endblock %}
 {% block body %} 
 
-
-
-
-
     <div class="container-md " style="height: 100vh">
         {% include 'layouts/navbar.html' %}
         {% block navbar %}{% endblock %}
@@ -18,13 +14,14 @@
             <div  class=" mt-5 justify-content-center" style="width: 40%;">
                 <div class="row">
                 <div class="col-md-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="img-fluid rounded-circle mb-3" alt="User Picture">
+                    <!-- <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="img-fluid rounded-circle mb-3" alt="User Picture"> -->
+                    <img src="{{ url_for('static', filename='icons/user.jpg' ) }}" class="rounded-circle" height="135" alt="" loading="lazy" />
+
                 </div>
                     <div class="col" style="width: 40%;">
                         <h2>Profile</h2><br>
                             <p><strong>Name:</strong> {{ current_user.name }} </p>
                             <p><strong>Email:</strong> {{ current_user.email }}</p>
-                            <p><strong>Rate:</strong> 7/10</p>
                             <p><strong>Location:</strong> Tbilisi</p>
                             <p><strong>Products:</strong> 0 </p>
                             <p><strong>Sold Product:</strong> 0</p>
